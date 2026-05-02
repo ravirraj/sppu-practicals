@@ -1,0 +1,34 @@
+# Practical No 5
+**Title:** Setup your own cloud for Software as a Service.
+
+**Objective:**
+To configure a private cloud over an existing LAN and implement basic cloud operations.
+
+**Hardware & Software Requirements:**
+- **Hardware:** Pentium IV with the latest configuration.
+- **ESXi Hardware Requirements:** 64-bit CPU (hardware virtualization supported), 4GB RAM (8GB recommended), SCSI disk / local RAID LUN with unpartitioned space.
+- **Software:** Ubuntu 20.04 and VMware ESXi 6.7 cloud.
+
+**Steps to Run:**
+
+*Part 1: ESXi Installation and Configuration (Host/Node)*
+1. **Run ESXi Installer:** Boot into the ESXi 6.7 installer and accept the user agreement.
+2. **Select Storage and Keyboard:** Choose the target installation drive and keyboard layout.
+3. **Set Root Password:** Define credentials for the ESXi root account.
+4. **Configuration via CLI:** After rebooting, use the direct console interface to:
+   - Configure the management network.
+   - Set the IPv4 address and DNS server.
+   - Restart the management network to apply changes.
+
+*Part 2: Cluster and Datacenter Setup (via GUI)*
+1. **Access vSphere Client:** Open your web browser and navigate to the vSphere Client GUI using the ESXi host's IP address.
+2. **Create a Datacenter:** Create the first datacenter to organize your cloud resources.
+3. **Create a Cluster:** Define a cluster name (e.g., "AVCOE-CLUSTER").
+4. **Add Hosts:**
+   - Enter the host IP address (e.g., 172.16.5.245).
+   - Provide the host credentials (root user and password) for authentication.
+   - Assign the host to a resource pool.
+5. **Resource Management:** Once the cluster is active, configure advanced cluster features like DRS (Distributed Resource Scheduler) and Failover.
+
+**Conclusion:** 
+The assignment concludes with the successful configuration of a private cloud using the VMware vSphere environment.

@@ -1,0 +1,26 @@
+# Practical No 4
+**Title:** Design and develop a custom application using Salesforce cloud.
+
+**Objective:**
+This practical covers the design and development of a custom application using the Salesforce Cloud platform.
+
+**Steps to Create the Application:**
+The following process outlines the creation of a New Lightning App within the Salesforce environment:
+
+1. **Access Environment:** Open Salesforce and switch to the Lightning Experience interface.
+2. **Navigate to App Manager:** 
+   - Open the App Launcher.
+   - Click "View All", search for "App Manager" in the quick search bar, and select it.
+   - Click on the **"New Lightning App"** button.
+3. **App Details:** Fill in the required information for the new application.
+4. **App Options (Optional):** Click on the App Options if specific configurations are needed.
+5. **Add Utility Bar:** Add any desired utility items to the application.
+6. **Navigation Items:** Navigate to "Items" and add the specific objects or tabs you want to appear in the app.
+7. **Assign User Profiles:** Select the User Profiles that should have permission to access the application, then click **Save and Finish**.
+8. **Confirmation:** You will be returned to the Lightning Experience App Manager window.
+9. **Verification:** Search for your app by name in the App Launcher. You can find it by typing just a few characters; the app name and logo will appear. Click it to view the application output.
+10. **Functionality:** Once open, you can perform actions such as adding new contacts to your application.
+11. **Customization:** You also have the option to add images and logos to the app.
+
+**Conclusion:** 
+Your mini project application gets created successfully.
