@@ -1,0 +1,33 @@
+# Practical No 3
+**Title:** Creating an Application in Salesforce.com using Apex Programming Language
+
+**Objective:**
+- To understand Salesforce cloud platform and Apex programming language.
+- To create a simple Salesforce application using Apex.
+- To implement business logic using Apex classes and triggers.
+
+**Steps to Run:**
+1. **Login to Salesforce:**
+   - Go to `https://developer.salesforce.com`
+   - Login using Developer credentials.
+2. **Create Custom Object:**
+   - Navigate to Setup → Object Manager.
+   - Create a new custom object (e.g., `Student__c`).
+3. **Create Apex Class:**
+   - Go to Setup → Apex Classes.
+   - Click New and create an Apex class.
+4. **Write Apex Code:**
+   ```apex
+   public class StudentApp {
+       public static void displayMessage() {
+           System.debug('Welcome to Salesforce Apex Programming');
+       }
+   }
+   ```
+5. **Execute Apex Code:**
+   - Open Developer Console.
+   - Execute the method using the Execute Anonymous Window.
+6. **Verify Output:**
+   - Check the output in the Debug Logs.
+
+**Conclusion:** Salesforce Apex allows developers to implement complex business logic in cloud-based applications securely and efficiently.

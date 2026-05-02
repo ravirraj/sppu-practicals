@@ -1,0 +1,22 @@
+# Practical No 1
+**Title:** Case Study on Microsoft Azure Cloud Computing Platform
+
+**Objective:**
+- To study Microsoft Azure as a cloud computing platform
+- To understand Azure services, architecture, deployment models, and applications
+- To analyze advantages and real-world use cases of Microsoft Azure
+
+**Details / Steps to Run:**
+Since this is a theoretical case study, there are no specific code execution steps. You need to study the following concepts:
+1. **Infrastructure as a Service (IaaS):** Virtual Machines (VMs), Virtual Networks, Load Balancers. Example: Azure Virtual Machines.
+2. **Platform as a Service (PaaS):** App Services, Azure SQL Database, Azure Functions. Example: Hosting a web application using Azure App Service.
+3. **Software as a Service (SaaS):** Microsoft 365, Dynamics 365, OneDrive.
+
+**Architecture Key Components:**
+- Compute Services (VMs, Containers)
+- Storage Services (Blob Storage, File Storage, Disk Storage)
+- Networking (Virtual Network, VPN Gateway)
+- Databases (Azure SQL, Cosmos DB)
+- Security (Azure Active Directory, Encryption)
+
+**Conclusion:** Microsoft Azure is a powerful and flexible cloud computing platform that helps organizations reduce infrastructure cost, improve scalability, and enhance application performance.

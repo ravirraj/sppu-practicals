@@ -1,0 +1,30 @@
+# Practical No 2
+**Title:** Installation and Configuration of Google App Engine (GAE)
+
+**Objective:**
+- To install and configure Google App Engine (GAE).
+- To understand Google App Engine as a Platform as a Service (PaaS).
+- To deploy and run a simple cloud application without managing servers.
+
+**Steps to Run:**
+1. **Create Google Cloud Project:**
+   - Login to Google Cloud Console.
+   - Create a new project and note the Project ID.
+2. **Install Google Cloud SDK:**
+   - Download and install Google Cloud SDK.
+   - Verify installation by running: `gcloud version`
+3. **Initialize SDK:**
+   - Run: `gcloud init`
+   - Login with your Google account.
+   - Select the created project.
+4. **Enable Google App Engine:**
+   - Enable App Engine API.
+   - Choose the region for deployment.
+5. **Create Sample Application:**
+   - Create the necessary files: `main.py` and `app.yaml`.
+6. **Deploy Application:**
+   - Run: `gcloud app deploy`
+7. **Access Application:**
+   - Run: `gcloud app browse`
+
+**Conclusion:** Google App Engine provides a reliable and scalable cloud platform that eliminates the need for infrastructure management.
