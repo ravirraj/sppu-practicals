@@ -1,0 +1,11 @@
+# Experiment 1: Tomcat Server Installation & Configuration
+Objective: Install Tomcat Server and configure its environment variables.
+
+Steps to Run:
+1. Download and install Java 7 (or later) and Apache Tomcat Server.
+2. Find the start program in your system's Programs Menu.
+3. Look under "Apache Tomcat" and select "Start Tomcat" (or run `startup.bat` from the Tomcat `bin` directory via terminal).
+4. Open any web browser (Chrome, Firefox, etc.).
+5. Type the following URL into the address bar: http://localhost:8080/
+6. You should see the Tomcat home page, indicating the server is running successfully.
+7. To shut down the server, select "Stop Tomcat" (or run `shutdown.bat`).

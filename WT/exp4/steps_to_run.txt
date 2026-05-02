@@ -1,0 +1,8 @@
+# Experiment 4: Form Validation using JavaScript
+Objective: Design a student registration form and validate mandatory fields, phone number, and email address using HTML, CSS, and JavaScript.
+
+Steps to Run:
+1. Write the HTML code for the form in a text editor and save it with a `.html` extension (e.g., `student_validation.html`).
+2. Write a JavaScript function to validate the email ID and phone number. Enclose this function within `<script>` ... `</script>` tags in the HTML file (usually in the `<head>` or before `</body>`).
+3. Call this validation function on the form submission or on the `onClick` event of the submit button. For example: `<form onsubmit="return validateForm()">` or `<input type="submit" onclick="validateForm()">`.
+4. Open the HTML page in the browser and try submitting the form with invalid/empty data to test if the JavaScript alerts pop up correctly.

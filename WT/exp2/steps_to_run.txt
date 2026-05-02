@@ -1,0 +1,9 @@
+# Experiment 2: HTML and CSS Web Application (Registration Form)
+Objective: Design and develop a student registration form using HTML and CSS.
+
+Steps to Run:
+1. Write the HTML code for the registration form in a text editor (like Notepad or VS Code) and save the file with a `.html` extension (e.g., `registration.html`).
+2. Write the CSS styling code in a new file and save it with a `.css` extension (e.g., `style.css`).
+3. Import/Link the CSS file inside the HTML page's `<head>` tag using the `<link>` tag:
+   <link rel="stylesheet" href="style.css">
+4. Double-click the saved `.html` file to open it directly in your web browser.

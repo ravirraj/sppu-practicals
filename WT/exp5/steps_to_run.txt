@@ -1,0 +1,11 @@
+# Experiment 5: JSP, Servlet, and MySQL Web Application
+Objective: Design and build Student/Employee Login pages using JSP, Servlets, and a MySQL backend database.
+
+Steps to Run:
+1. Design the front-end login/registration forms using HTML and JSP, saving them with `.html` and `.jsp` extensions (e.g., `index.html`, `login.jsp`).
+2. Set up your MySQL database. Create the necessary tables (like `registration_details`) to store usernames and passwords.
+3. Write the database connection logic in a Java Servlet (or directly in JSP using scriptlets for basic lab purposes).
+4. Make sure to set the correct MySQL username, password, and database name in your connection configuration (e.g., `jdbc:mysql://localhost:3306/stud`, username: `root`, password: `""`).
+5. Ensure the MySQL server (via XAMPP/WAMP or native) is running.
+6. Deploy the application to your Tomcat Server and start the Tomcat Server.
+7. Open a web browser and access the application by typing the local server address with the port number, typically: `http://localhost:8080/YourProjectName/` or `http://localhost:8084/`.

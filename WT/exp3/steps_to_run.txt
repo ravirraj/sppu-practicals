@@ -1,0 +1,9 @@
+# Experiment 3: XML and CSS Web Application (Book Catalog)
+Objective: Design a book catalog displaying title, author, price, and year using XML and CSS.
+
+Steps to Run:
+1. Write the XML data structure code in a text editor and save it with an `.xml` extension (e.g., `book.xml`).
+2. Write the CSS styling rules in a separate file and save it with a `.css` extension (e.g., `book.css`).
+3. Import the CSS file at the very top of your XML page (right below the XML declaration) using the stylesheet processing instruction:
+   <?xml-stylesheet type='text/css' href='book.css'?>
+4. Drag and drop the `.xml` file into your web browser, or double-click it to view the styled catalog.
