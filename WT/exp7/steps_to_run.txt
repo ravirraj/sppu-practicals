@@ -1,0 +1,9 @@
+# Experiment 7: Dynamic Web Application using PHP, AJAX, and MySQL
+Objective: Design and develop a dynamic web application using PHP, AJAX, and MySQL for employee data with insert and view operations without reloading the page.
+
+Steps to Run:
+1. Start XAMPP Server, ensuring Apache and MySQL are running.
+2. Place all the files (PHP, JavaScript/AJAX, HTML) into a new folder within the XAMPP `htdocs` directory (e.g., `C:\xampp\htdocs\exp7`).
+3. Open `http://localhost/phpmyadmin/` in your browser to create the necessary database and tables.
+4. Update the PHP database connection code to match your local MySQL credentials.
+5. Open your web browser and navigate to `http://localhost/exp7/view_records.php` (or your main index file) to test the AJAX interactions.

@@ -1,0 +1,11 @@
+# Experiment 10: Web Application using Enterprise Java Beans (EJB)
+Objective: Design and implement the web application logic for deposit and withdrawal transactions using EJB.
+
+Steps to Run:
+1. Open NetBeans IDE (or Eclipse with Java EE/Jakarta EE support).
+2. Create a new "Enterprise Application" project, which will automatically create an EJB module and a Web application module.
+3. In the EJB module, create your Session Beans (e.g., the `BankTransactLocal` interface and `BankTransact` implementation class).
+4. In the Web module, add your HTML form (`index.html`) and the Servlet (`transact.java`) that invokes the EJB.
+5. Configure an Application Server (like GlassFish, Payara, or WildFly/JBoss) in your IDE.
+6. Build and deploy the Enterprise Application to the configured Application Server.
+7. Once deployed, the IDE will usually open the application in your browser automatically, or you can navigate to `http://localhost:8080/YourProjectName/` to interact with the bank transaction interface.

@@ -1,0 +1,12 @@
+# Experiment 8: Web Application using Struts Framework
+Objective: Create a login module for a web application using the Struts MVC framework.
+
+Steps to Run:
+1. Open Eclipse IDE and create a new "Dynamic Web Project".
+2. Add the Struts 1.x API library JAR files to the `WEB-INF/lib` folder of your project.
+3. Copy the Java classes (`loginbean.java`, `loginform.java`) into your Java source packages (e.g., `com.myapp.struts`).
+4. Place the JSP pages (`login.jsp`, `success.jsp`, `failure.jsp`) into the Web Content directory.
+5. Configure the Struts mappings by placing `struts-config.xml` and `web.xml` in the `WEB-INF` directory.
+6. Configure Apache Tomcat Server (v7.0 or higher) within Eclipse.
+7. Deploy the project to the Tomcat server and start it.
+8. Open a browser and access the application (e.g., `http://localhost:8080/YourProjectName/login.jsp`).

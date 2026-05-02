@@ -1,0 +1,8 @@
+# Experiment 9: Web Application using AngularJS
+Objective: Create a Single Page Application (SPA) for a Bill Payment/Shopping Cart record using AngularJS.
+
+Steps to Run:
+1. Write the HTML code and embedded AngularJS scripts in a text editor (Notepad, VS Code) and save it with an `.html` extension (e.g., `shopping_cart.html`).
+2. Make sure the AngularJS library is linked properly in the `<head>` tag. You can either download `angular.js` and link it locally, or use a CDN (e.g., `<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>`).
+3. Double-click the saved `.html` file to open it directly in a modern web browser. 
+4. Interact with the form (add items, remove items, change quantities) to see the two-way data binding and dynamic total calculation in action.

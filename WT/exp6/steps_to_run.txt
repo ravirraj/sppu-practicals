@@ -1,0 +1,10 @@
+# Experiment 6: Dynamic Web Application using PHP and MySQL
+Objective: Design and develop a dynamic web application using PHP and MySQL as a back-end for employee data with insert, delete, view, and update operations.
+
+Steps to Run:
+1. Start XAMPP Server and ensure both the Apache and MySQL services are running.
+2. Create a folder for this experiment inside the `htdocs` directory of your XAMPP installation (e.g., `C:\xampp\htdocs\exp6`).
+3. Move all the PHP and HTML files for this experiment into that folder.
+4. Open your web browser and go to `http://localhost/phpmyadmin/` to set up the MySQL database. Create the database and the required tables for employee data.
+5. Ensure that your database connection file (e.g., `db_connect.php`) has the correct database name, username (`root`), and password (usually empty `""`).
+6. Access the application by navigating to `http://localhost/exp6/index.php` in your web browser.
