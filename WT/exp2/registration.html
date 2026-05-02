@@ -1,0 +1,99 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-
+scale=1.0"> 
+    <title>Welcome To Registration Page</title> 
+    <style> 
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 20px; 
+        } 
+        form { 
+            max-width: 400px; 
+            margin: auto; 
+        } 
+        label { 
+            display: block; 
+            margin-bottom: 5px; 
+        } 
+        input, select { 
+            width: 100%; 
+            padding: 8px; 
+            margin-bottom: 10px; 
+            box-sizing: border-box; 
+        } 
+    </style> 
+</head> 
+<body> 
+<center> 
+    <h1>User Registration Page</h1> 
+    <form action="process_registration.php" method="post"> 
+    <table> 
+        <tr> 
+            <td><label for="first_name">First Name:</label></td> 
+            <td><input type="text" id="first_name" name="first_name" 
+placeholder="Enter Your First Name" required></td> 
+            </tr> 
+     
+            <tr> 
+            <td><label for="last_name">Last Name:</label></td> 
+            <td><input type="text" id="last_name" name="last_name" 
+placeholder="Enter Your Last Name" required><br></td> 
+            </tr> 
+     
+            <tr> 
+            <td><label for="gender">Gender:</label></td> 
+            <td><select id="gender" name="gender"> 
+                <option value="male">Male</option> 
+                <option value="female">Female</option> 
+                </select> 
+            </td> 
+            </tr> 
+     
+            <tr> 
+            <td><label for="branch">Branch:</label></td> 
+            <td><select id="branch" name="branch" required> 
+                <option value="Computer">Computer Engineering</option> 
+
+                <option value="IT">IT Engineering</option> 
+                <option value="EnTC">EnTC Engineering</option> 
+                <option value="Civil">Civil Engineering</option> 
+                <option value="Mechanical">Mechanical 
+Engineering</option> 
+                </select> 
+            </td> 
+            </tr> 
+     
+            <tr> 
+            <td><label for="email">Email:</label></td> 
+            <td><input type="email" id="email" name="email" 
+required></td> 
+            </tr> 
+     
+            <tr> 
+            <td><label for="contact_number">Contact Number:</label></td> 
+            <td><input type="tel" id="contact_number" 
+name="contact_number" required></td> 
+            </tr> 
+ 
+            <tr> 
+            <td><input type="submit" value="Register"></td> 
+            <td><input type="reset" value="Reset"></td>  
+            </tr> 
+            </form> 
+     
+            <script> 
+            document.querySelector('form').addEventListener('submit', 
+function (event){
+                event.preventDefault(); 
+                alert('User registration is successful!'); 
+                
+                this.reset();  
+            }); 
+            </script> 
+    </table> 
+</center> 
+</body> 
+</html> 

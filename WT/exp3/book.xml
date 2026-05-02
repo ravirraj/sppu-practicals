@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/css' href='book.css'?>
+<catlog>
+    <book>
+        <title>DATABASE MANAGEMENT SYSTEM</title>
+        <auther>ABC</auther>
+        <year>1992</year>
+        <price>3000</price>
+    </book>
+    <book>
+        <title>WEB TECHNOLOGY</title>
+        <auther>XYZ</auther>
+        <year>1993</year>
+        <price>4000</price>
+    </book>
+    <book>
+        <title>DATA ANALYSIS</title>
+        <auther>PPP</auther>
+        <year>1997</year>
+        <price>00</price>
+    </book>
+</catlog>

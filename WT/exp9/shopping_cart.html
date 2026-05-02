@@ -1,0 +1,87 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+<style> table { 
+width: 80%; 
+border: 2px solid black; 
+border-collapse: collapse; 
+margin: 20px auto;
+ 
+} 
+th, td { 
+border: 1px solid black; 
+padding: 8px;
+ 
+text-align: center; 
+} 
+th { 
+background-color: #f2f2f2; 
+} 
+</style> 
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script 
+> 
+</head> 
+<body> 
+<hr><br> 
+<center><h2>Shopping Cart Record</h2></center> 
+<div data- ng-app="myapp" data- ng-controller="CartForm"> 
+<center><br> 
+<hr><br><br> 
+<table class="table"> 
+<thead> 
+<tr> 
+<th>Description</th> 
+<th>Qty</th> 
+<th>Cost</th> 
+<th>Total</th> 
+<th>Remove</th> 
+</tr> 
+</thead> 
+<tbody> 
+<tr ng-repeat="item in cart.items track by $index"> 
+<td><input type="text" ng-model="item.description"></td> 
+<td><input type="number" ng-model="item.qty" ng-required></td> 
+<td><input type="number" ng-model="item.cost" ng-required></td> 
+<td>{{item.qty * item.cost | currency:'Rs '}}</td> 
+
+<td>[<a href ng-click="removeItem($index)">X</a>]</td> 
+</tr> 
+<tr> 
+<td><a href ng-click="addItem()">Add Item</a></td> 
+<td></td> 
+ <td>Total:</td>
+ 
+<td>{{total() | currency:'Rs '}}</td> 
+<td></td> 
+</tr> 
+</tbody> 
+</table> 
+</center> 
+</div> 
+<script> 
+var app = angular.module('myapp', []); app.controller('CartForm', 
+function($scope) {
+ 
+$scope.cart = { 
+items: [{ qty: '', description: '', cost: '' }] 
+}; 
+ 
+$scope.addItem = function() { 
+$scope.cart.items.push({ qty: '', description: '', cost: '' }); 
+}; 
+ 
+$scope.removeItem = function(index) { 
+$scope.cart.items.splice(index, 1); 
+}; 
+ 
+$scope.total = function() { var total 
+= 0; 
+angular.forEach($scope.cart.items, function(item) { total += 
+item.qty * item.cost; 
+}); 
+return total; 
+}; 
+}); 
+</script> 
+</body> 
+</html> 
