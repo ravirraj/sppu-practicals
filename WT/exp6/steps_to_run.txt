@@ -1,10 +1,91 @@
 # Experiment 6: Dynamic Web Application using PHP and MySQL
-Objective: Design and develop a dynamic web application using PHP and MySQL as a back-end for employee data with insert, delete, view, and update operations.
 
-Steps to Run:
-1. Start XAMPP Server and ensure both the Apache and MySQL services are running.
-2. Create a folder for this experiment inside the `htdocs` directory of your XAMPP installation (e.g., `C:\xampp\htdocs\exp6`).
-3. Move all the PHP and HTML files for this experiment into that folder.
-4. Open your web browser and go to `http://localhost/phpmyadmin/` to set up the MySQL database. Create the database and the required tables for employee data.
-5. Ensure that your database connection file (e.g., `db_connect.php`) has the correct database name, username (`root`), and password (usually empty `""`).
-6. Access the application by navigating to `http://localhost/exp6/index.php` in your web browser.
+## Objective
+Design and develop a dynamic web application using PHP and MySQL as a back-end for employee data with insert, delete, view, and update operations.
+
+## Prerequisites
+- **XAMPP** installed (includes Apache Server and MySQL).
+- Basic knowledge of PHP and MySQL.
+
+## Reference Links
+- **XAMPP Download**: [https://www.apachefriends.org/download.html](https://www.apachefriends.org/download.html)
+- **PHP Documentation**: [https://www.php.net/docs.php](https://www.php.net/docs.php)
+
+---
+
+## Steps to Run
+
+### Step 1: Database Setup (MySQL)
+1. Open XAMPP Control Panel and **Start both Apache and MySQL**.
+2. Open your browser and go to `http://localhost/phpmyadmin/`.
+3. Create a new database named:
+   - `assignment6`
+4. Run the following SQL queries to create the necessary tables:
+
+   ```sql
+   CREATE TABLE registration_details (
+       id INT AUTO_INCREMENT PRIMARY KEY,
+       fname VARCHAR(50),
+       lname VARCHAR(50),
+       gender VARCHAR(10),
+       age INT,
+       mno VARCHAR(15),
+       address TEXT,
+       email VARCHAR(100) UNIQUE,
+       pword VARCHAR(50)
+   );
+
+   CREATE TABLE s_info (
+       rollno VARCHAR(20) PRIMARY KEY,
+       first_name VARCHAR(50),
+       last_name VARCHAR(50),
+       gender VARCHAR(10),
+       mobile_number VARCHAR(15)
+   );
+   ```
+
+### Step 2: Deploy the Project
+1. Open your XAMPP installation directory, specifically the `htdocs` folder (e.g., `C:\xampp\htdocs\`).
+2. Copy your entire `exp6` folder and paste it into `htdocs`:
+   - Target location: `C:\xampp\htdocs\exp6\`
+3. Ensure that your database connection file (`db_connect.php`) has the correct database name (`assignment6`), username (`root`), and password (`""`).
+
+### Step 3: Run the Application
+1. Open any web browser.
+2. Navigate to:
+   - `http://localhost/exp6/index.php`
+3. You can now use the application to Sign Up, Log In, and perform Insert/Update/Delete/View operations.
+
+---
+
+## Alternative: Using Built-in PHP Server (If XAMPP Apache Fails)
+If port 80 or 8080 is blocked and Apache won't start, you can use PHP's built-in server:
+1. Open Command Prompt.
+2. Navigate to your project folder:
+   ```cmd
+   cd c:\Users\Keshav\Desktop\madhav\sppu-practicals\WT\exp6
+   ```
+3. Run the PHP server on an available port (e.g., 8000):
+   ```cmd
+   php -S localhost:8000
+   ```
+   *Note: You STILL need XAMPP's MySQL running.*
+4. Open browser to: `http://localhost:8000/index.php`
+
+---
+
+## Common Errors and Fixes (Very Important ⚠️)
+
+### 1. Database Connection Failed
+- **Error**: `Connection failed: Access denied for user 'root'@'localhost'`
+- **Fix**: Check `db_connect.php`. Default XAMPP settings use `root` as username with a blank password (`""`).
+
+### 2. Table or Database Doesn't Exist
+- **Error**: `Table 'assignment6.registration_details' doesn't exist`
+- **Fix**: Make sure you successfully ran the SQL queries in Step 1 inside the `assignment6` database.
+
+### 3. "Address already in use" (Port conflicts)
+- **Fix**: If you try to run PHP Server or XAMPP Apache and get an "Access Denied" or "Forbidden by its access permissions" error on a port (like 8080), it means another app (like Tomcat) is already using it. Change the port to something else like 8000 or 8081 (e.g., `php -S localhost:8000`).
+
+### 4. Blank Page / HTTP 500
+- **Fix**: Check your PHP code for syntax errors. You can find PHP error logs in `C:\xampp\apache\logs\error.log`.
