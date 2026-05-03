@@ -1,11 +1,112 @@
 # Experiment 5: JSP, Servlet, and MySQL Web Application
-Objective: Design and build Student/Employee Login pages using JSP, Servlets, and a MySQL backend database.
 
-Steps to Run:
-1. Design the front-end login/registration forms using HTML and JSP, saving them with `.html` and `.jsp` extensions (e.g., `index.html`, `login.jsp`).
-2. Set up your MySQL database. Create the necessary tables (like `registration_details`) to store usernames and passwords.
-3. Write the database connection logic in a Java Servlet (or directly in JSP using scriptlets for basic lab purposes).
-4. Make sure to set the correct MySQL username, password, and database name in your connection configuration (e.g., `jdbc:mysql://localhost:3306/stud`, username: `root`, password: `""`).
-5. Ensure the MySQL server (via XAMPP/WAMP or native) is running.
-6. Deploy the application to your Tomcat Server and start the Tomcat Server.
-7. Open a web browser and access the application by typing the local server address with the port number, typically: `http://localhost:8080/YourProjectName/` or `http://localhost:8084/`.
+## Objective
+To design and develop a Student Login and Registration system using JavaServer Pages, Java Servlet, and MySQL.
+
+## Prerequisites
+- **Apache Tomcat** installed and configured
+- **XAMPP** or MySQL Server installed
+- **MySQL JDBC Driver** (`mysql-connector-j-x.x.x.jar`)
+- Basic knowledge of HTML, JSP, and Servlets
+
+## Reference Links (For Detailed Setup)
+- **Tomcat Official Site**: [https://tomcat.apache.org/](https://tomcat.apache.org/)
+- **MySQL Download**: [https://dev.mysql.com/downloads/](https://dev.mysql.com/downloads/)
+- **XAMPP Download**: [https://www.apachefriends.org/download.html](https://www.apachefriends.org/download.html)
+- **MySQL Connector/J**: [https://dev.mysql.com/downloads/connector/j/](https://dev.mysql.com/downloads/connector/j/)
+- **JSP & Servlet Basics**: [https://www.javatpoint.com/jsp-tutorial](https://www.javatpoint.com/jsp-tutorial)
+
+---
+
+## Steps to Run
+
+### Step 1: Database Setup (MySQL)
+1. Open XAMPP Control Panel → **Start MySQL**
+2. Open browser and go to:
+   - `http://localhost/phpmyadmin/`
+3. Create a database named:
+   - `stud`
+4. Execute the following SQL query:
+   ```sql
+   CREATE TABLE reg (
+       id INT AUTO_INCREMENT PRIMARY KEY,
+       name VARCHAR(100),
+       gender VARCHAR(10),
+       email VARCHAR(100),
+       college VARCHAR(100),
+       branch VARCHAR(50),
+       mobile VARCHAR(15),
+       username VARCHAR(50) UNIQUE,
+       password VARCHAR(50)
+   );
+   ```
+
+### Step 2: Configure JDBC Driver
+1. Download MySQL Connector/J `.jar` file
+2. Copy the file:
+   - `mysql-connector-j-8.x.x.jar`
+3. Paste it into Tomcat lib folder:
+   - `C:\Tomcat\lib\`
+   *Note: This step is mandatory for database connectivity.*
+
+### Step 3: Deploy the Project
+1. Copy the project folder:
+   - `exp5`
+2. Paste it into Tomcat webapps directory:
+   - `C:\Tomcat\webapps\exp5\`
+
+### Step 4: Start Tomcat Server
+1. Go to:
+   - `C:\Tomcat\bin\`
+2. Run:
+   - `startup.bat`
+
+### Step 5: Run the Application
+1. Open web browser
+2. Enter URL:
+   - `http://localhost:8080/exp5/index.html`
+3. Use:
+   - **Registration Form** → Add new user
+   - **Login Form** → Access student records
+
+---
+
+## Common Errors and Fixes (Very Important ⚠️)
+
+### 1. JDBC Driver Not Found
+- **Error**: `ClassNotFoundException: com.mysql.cj.jdbc.Driver`
+- **Fix**: 
+  - Ensure `.jar` file is placed in: `C:\Tomcat\lib\`
+  - Restart Tomcat server
+
+### 2. Database Connection Failed
+- **Error**: `Unable to connect to MySQL`
+- **Fix**:
+  - Check MySQL is running in XAMPP
+  - Verify connection code: `jdbc:mysql://localhost:3306/stud`
+  - Check username & password (default is `root` with no password)
+
+### 3. Port 8080 Already in Use
+- **Fix**:
+  - Change port in `server.xml`:
+    ```xml
+    <Connector port="8081" protocol="HTTP/1.1" />
+    ```
+  - Run using the new port: `http://localhost:8081/`
+
+### 4. HTTP Status 404 (Project Not Found)
+- **Fix**:
+  - Ensure project is inside: `webapps/exp5`
+  - Check URL spelling: `http://localhost:8080/exp5/`
+
+### 5. SQL Table Not Found
+- **Error**: `Table 'stud.reg' doesn't exist`
+- **Fix**:
+  - Run SQL query again in phpMyAdmin
+  - Ensure database name is correct
+
+### 6. Login Not Working
+- **Fix**:
+  - Check if data is inserted in table
+  - Verify SQL query in JSP/Servlet
+  - Ensure correct field names match exactly

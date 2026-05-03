@@ -1,121 +1,146 @@
-<!DOCTYPE html> 
-<html> 
-<head> 
-<title>Registration</title> 
-</head> 
-<body> 
-  <center> 
-    <h1 style="background-color: Tomato;">Student Registration</h1> 
-  </center> 
-  <hr /> 
-  <br> 
-  <form id="fr" action="registration.jsp" method="POST"> 
-    <br> 
-    <center> 
-      Name* :&ensp; &ensp; <input type="text" name="name" 
-id="name" 
-        placeholder="Enter name" 
-        style="width: 200px; font-size: 12pt; color: 
-black;">     
-    </center> 
-    <br> 
-    <br> 
-    <center> 
-      Gender Type*:&ensp;&ensp; <input type="radio" name="gender" 
-        
-value="male">Male&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; <input 
-        type="radio" name="gender" value="female">Female 
-  
-  
-  
-  
-</center> 
-<br> 
-    <br> 
-    <center> 
-      Email id *:&ensp; <input type="text" name="email" 
-id="emai 
-  
-l" 
-  
- 
-  
- 
-  
- 
-placeholder="Enter 
-email" 
-  
- 
-  
- 
-  
- 
-  
- 
-style="width: 200px; font-size: 12pt; color: 
-black;">     
-    </center> 
-    <br> 
-    <br> 
-    <center> 
-      College *:&ensp;&ensp; <input type="text" name="college" 
-id="college" 
-        placeholder="Enter College" 
-        style="width: 200px; font-size: 12pt; color: 
-black;">     
-    </center> 
-    <br> 
-    <br> 
-    <center> 
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Student Registration</title>
+    <style>
+      body {
+        background-color: #008080; /* Classic Win95 Teal */
+        font-family: "MS Sans Serif", Arial, sans-serif;
+        font-size: 11px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+      }
+      .window {
+        background-color: #c0c0c0;
+        border: 2px solid;
+        border-color: #fff #808080 #808080 #fff;
+        padding: 2px;
+        width: 420px;
+      }
+      .title-bar {
+        background: linear-gradient(90deg, #000080, #1084d0);
+        color: white;
+        padding: 3px 5px;
+        font-weight: bold;
+        display: flex;
+        justify-content: space-between;
+      }
+      .content {
+        padding: 10px;
+        border: 1px solid #808080;
+        margin: 2px;
+      }
+      .header {
+        background-color: Tomato;
+        color: white;
+        text-align: center;
+        padding: 5px;
+        border: 2px inset #fff;
+        margin-bottom: 15px;
+      }
+      table {
+        width: 100%;
+        border-spacing: 4px;
+      }
+      td {
+        white-space: nowrap;
+      }
 
-      Branch *: &ensp;&ensp;<input type="text" name="branch" 
-id="branch" 
-        placeholder="Enter Branch" 
-        style="width: 200px; font-size: 12pt; color: 
-black;"> 
-    </center> 
-    <br> 
-    <br> 
-    <center> 
-      Mobile No *:<input type="text" name="mobile" id="mobile" 
-        placeholder="Enter 
-Mobile no" 
-        style="width: 200px; font-size: 12pt; color: 
-black;"> 
-    </center> 
-    <br> 
-    <br> 
-    <center> 
-      Username *: <input type="text" name="username" 
-id="username" 
-        placeholder="Enter username" style="width: 200px; 
-font-size: 12pt;"><br> 
-      <br> 
-    </center> 
-    <center> 
-      Password *: <input type="password" name="password" 
-id="password" 
-        placeholder="Enter Password" style="width: 200px; 
-font size: 12pt;">  
-    </center> 
-    <br> 
-    <center> 
-      <input type="submit" value="Submit" 
-        style="width: 100px; font size: 15pt; color: 
-black; background-color: blue;">&ensp;&ensp;&ensp;&ensp; 
-      <input type="reset" value="Reset" 
-        style="width: 100px; font-size: 15pt; color: black; 
-background- color: blue;"> 
-    </center> 
-    <br> 
-    <br> 
-    <hr /> 
-    <center> 
-      <p style="font-size: 15pt; color: black;">(*) Field 
-indicates 
-        field is mandatory!!</p> 
-    </center> 
-  </form> 
-</body> 
-</html> 
+      input[type="text"],
+      input[type="password"] {
+        border: 2px solid;
+        border-color: #808080 #fff #fff #808080; /* Inset look */
+        background: #fff;
+        padding: 2px;
+        width: 100%;
+      }
+
+      .footer-info {
+        font-size: 10px;
+        margin-top: 10px;
+        border-top: 1px solid #808080;
+        padding-top: 5px;
+      }
+      .btn-row {
+        text-align: right;
+        margin-top: 10px;
+      }
+
+      input[type="submit"],
+      input[type="reset"] {
+        background: #c0c0c0;
+        border: 2px solid;
+        border-color: #fff #808080 #808080 #fff; /* Outset look */
+        padding: 3px 15px;
+        cursor: pointer;
+        min-width: 80px;
+      }
+      input:active {
+        border-color: #808080 #fff #fff #808080;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="window">
+      <div class="title-bar">
+        <span>Student_Registration.exe</span>
+        <span>[?] [X]</span>
+      </div>
+      <div class="content">
+        <div class="header">STUDENT REGISTRATION</div>
+        <form action="registration.jsp" method="POST">
+          <table>
+            <tr>
+              <td>Name*:</td>
+              <td><input type="text" name="name" required /></td>
+            </tr>
+            <tr>
+              <td>Gender*:</td>
+              <td>
+                <input type="radio" name="gender" value="male" checked /> Male
+                <input type="radio" name="gender" value="female" /> Female
+              </td>
+            </tr>
+            <tr>
+              <td>Email*:</td>
+              <td><input type="text" name="email" required /></td>
+            </tr>
+            <tr>
+              <td>College*:</td>
+              <td><input type="text" name="college" required /></td>
+            </tr>
+            <tr>
+              <td>Branch*:</td>
+              <td><input type="text" name="branch" required /></td>
+            </tr>
+            <tr>
+              <td>Mobile*:</td>
+              <td><input type="text" name="mobile" required /></td>
+            </tr>
+            <tr>
+              <td>Username*:</td>
+              <td><input type="text" name="username" required /></td>
+            </tr>
+            <tr>
+              <td>Password*:</td>
+              <td><input type="password" name="password" required /></td>
+            </tr>
+          </table>
+
+          <div class="btn-row">
+            <input type="reset" value="Reset" />
+            <input type="submit" value="Submit" />
+          </div>
+
+          <div class="footer-info">
+            (*) Field indicates field is mandatory!!
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

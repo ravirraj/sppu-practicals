@@ -1,29 +1,104 @@
-<html> 
-<head> 
-<title>Login Page</title> 
-<meta charset="UTF-8"> 
-<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-</head> 
-<body> 
-  <form action="Signin.jsp" id="std" method="POST"> 
-    <center> 
-      Username : <input type="text" name="username" id="user" 
-        style="width: 200px; font-size: 15pt;"><br> 
-      <br> 
-    </center> 
-    <center> 
-      Password : <input type="password" name="password" id="pass" 
-        style="width: 200px; font-size: 15pt;"> 
-    </center> 
-    <br> 
-    <center> 
-      <input type="submit" name="login" value="Login" id="sub" 
-        style="width: 160px; font-size: 20pt; color: black; 
-background-color: grey;">&ensp;&ensp;&ensp;&ensp; 
-      <input type="reset" value="Reset" 
-        style="width: 160px; height: 38px; font- size: 
-20pt; color: black; background-color: grey;"> 
-    </center> 
-  </form> 
-</body> 
-</html> 
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>System Login</title>
+    <style>
+      body {
+        background-color: #008080; /* Win95 Teal */
+        font-family: "MS Sans Serif", Arial, sans-serif;
+        font-size: 12px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+      .window {
+        background-color: #c0c0c0;
+        border: 2px solid;
+        border-color: #fff #808080 #808080 #fff;
+        padding: 2px;
+        width: 320px;
+      }
+      .title-bar {
+        background: linear-gradient(90deg, #000080, #1084d0);
+        color: white;
+        padding: 3px 5px;
+        font-weight: bold;
+        display: flex;
+        justify-content: space-between;
+      }
+      .content {
+        padding: 20px;
+        border: 1px solid #808080;
+        margin: 2px;
+      }
+      .login-row {
+        margin-bottom: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      input[type="text"],
+      input[type="password"] {
+        border: 2px solid;
+        border-color: #808080 #fff #fff #808080; /* Inset */
+        background: #fff;
+        padding: 3px;
+        width: 180px;
+      }
+
+      .footer {
+        text-align: right;
+        margin-top: 20px;
+      }
+      input[type="submit"],
+      input[type="reset"] {
+        background: #c0c0c0;
+        border: 2px solid;
+        border-color: #fff #808080 #808080 #fff; /* Outset */
+        padding: 4px 15px;
+        min-width: 75px;
+        cursor: pointer;
+        font-family: "MS Sans Serif", sans-serif;
+      }
+      input:active {
+        border-color: #808080 #fff #fff #808080;
+      }
+      h2 {
+        font-size: 14px;
+        margin: 0 0 15px 0;
+        border-bottom: 1px solid #808080;
+        padding-bottom: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="window">
+      <div class="title-bar">
+        <span>Login.exe</span>
+        <span>[?] [X]</span>
+      </div>
+      <div class="content">
+        <h2>Authorized Access Only</h2>
+        <form action="Signin.jsp" id="std" method="POST">
+          <div class="login-row">
+            <label for="user">Username:</label>
+            <input type="text" name="username" id="user" required />
+          </div>
+          <div class="login-row">
+            <label for="pass">Password:</label>
+            <input type="password" name="password" id="pass" required />
+          </div>
+
+          <div class="footer">
+            <input type="submit" name="login" value="OK" />
+            <input type="reset" value="Cancel" />
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

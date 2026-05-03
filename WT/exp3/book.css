@@ -1,0 +1,64 @@
+/* Old School Catalog Styling */
+
+catlog {
+    display: block;
+    background-color: #f0f0f0;
+    font-family: "Courier New", Courier, monospace;
+    padding: 20px;
+    color: #000;
+}
+
+book {
+    display: block;
+    border: 2px solid #333;
+    background-color: #fff;
+    margin-bottom: 15px;
+    padding: 10px;
+    width: 350px;
+    /* Creating a subtle "3D" button effect popular in old UI */
+    border-right: 4px solid #666;
+    border-bottom: 4px solid #666;
+}
+
+title {
+    display: block;
+    font-weight: bold;
+    font-size: 1.2em;
+    text-decoration: underline;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    color: #000080; /* Classic Navy Blue */
+}
+
+auther {
+    display: block;
+    margin-bottom: 4px;
+}
+
+auther::before {
+    content: "Author: ";
+    font-weight: bold;
+    color: #555;
+}
+
+year {
+    display: inline;
+    font-style: italic;
+    font-size: 0.9em;
+}
+
+year::before {
+    content: "Released: ";
+}
+
+price {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #008000; /* Classic Green */
+    text-align: right;
+}
+
+price::before {
+    content: "PRICE: $";
+}

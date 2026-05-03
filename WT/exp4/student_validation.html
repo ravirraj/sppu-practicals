@@ -1,81 +1,130 @@
-<!DOCTYPE html>  
-<html lang="en">  
-<head>  
-    <meta charset="UTF-8">  
-    <meta name="viewport" content="width=device-width, initial-
-scale=1.0">  
-    <title>Student Validation form</title>  
-    <style> 
-        body { 
-        font-family: Arial, sans-serif; 
-        margin: 20px; 
-        } 
-        form { 
-        max-width: 400px; 
-        margin: auto; 
-        } 
-        label { 
-        display: block; 
-        margin-bottom: 5px; 
-        } 
-        input, select { 
-        width: 100%; 
-        padding: 8px; 
-        margin-bottom: 10px; 
-        box-sizing: border-box; 
-        } 
-        </style>  
-</head>  
- 
-<body>  
-    <center>  
-    <h1>Student Validation form</h1>  
-    <form action="process_registration.php" method="post">  
-        <table>  
-            <tr>  
-                <td><label for="first_name">Enter Name:</label></td>  
-                <td><input type="text" id="full_name" name="full_name" 
-placeholder="Enter Your Full Name" required></td>  
-            </tr>  
-  
-            <tr>  
-                <td><label for="email">Enter Email ID:</label></td>  
-                <td><input type="email" id="email" name="email" 
-placeholder="Your Email Id" required></td>  
-            </tr>  
-  
-            <tr>  
-                <td><label for="user_name">Enter Username:</label></td>  
-                <td><input type="Username" id="user_name" 
-name="user_name" placeholder="Enter Your Username" required></td>  
-            </tr>  
- 
-            <tr>  
-                <td><label for="password">Enter Password:</label></td>  
-                <td><input type="password" id="password" name="password" 
-placeholder="Your Password" minlength="8" required></td>  
-            </tr>  
- 
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Student Validation</title>
+    <style>
+      body {
+        background-color: #008080;
+        font-family: "MS Sans Serif", Arial, sans-serif;
+        font-size: 12px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+      .window {
+        background-color: #c0c0c0;
+        border: 2px solid;
+        border-color: #fff #808080 #808080 #fff;
+        padding: 2px;
+        width: 350px;
+      }
+      .title-bar {
+        background: linear-gradient(90deg, #000080, #1084d0);
+        color: white;
+        padding: 3px 5px;
+        font-weight: bold;
+        display: flex;
+        justify-content: space-between;
+      }
+      .content {
+        padding: 15px;
+        border: 1px solid #808080;
+        margin: 2px;
+      }
+      h1 {
+        font-size: 14px;
+        margin: 0 0 10px 0;
+        text-align: center;
+      }
 
-            <tr>  
-                <td><input type="reset" value="Clear Form"></td>  
-                <td><input type="submit" value="Create Account"></td> 
-            </tr>  
-    </form>  
-  
-            <script>  
-             
-                // Add JavaScript to handle the pop-up on successful 
-registration  
-                document.querySelector('form').addEventListener('submit', 
-function (event){event.preventDefault();  
-                alert('Your Account Is Created Successfully'); 
-  
-                this.reset();  
-                });  
-                let pass=document.getElementsByName 
-            </script>  
-        </table>  
-    </center>  
-</body>  
-</html> 
+      table {
+        width: 100%;
+        border-spacing: 5px;
+      }
+      label {
+        font-weight: bold;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      input[type="password"],
+      input[type="Username"] {
+        border: 2px solid;
+        border-color: #808080 #fff #fff #808080; /* Inset look */
+        background: #fff;
+        padding: 2px;
+        width: 100%;
+        font-size: 12px;
+        box-sizing: border-box;
+      }
+
+      .btn-row {
+        text-align: right;
+        margin-top: 15px;
+      }
+      input[type="submit"],
+      input[type="reset"] {
+        background: #c0c0c0;
+        border: 2px solid;
+        border-color: #fff #808080 #808080 #fff; /* Outset look */
+        padding: 4px 10px;
+        min-width: 80px;
+        cursor: pointer;
+        font-size: 11px;
+      }
+      input:active {
+        border-color: #808080 #fff #fff #808080;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="window">
+      <div class="title-bar">
+        <span>Setup.exe</span>
+        <span>[?] [X]</span>
+      </div>
+      <div class="content">
+        <h1>Student Registration</h1>
+        <form id="studentForm">
+          <table>
+            <tr>
+              <td><label>Name:</label></td>
+              <td><input type="text" placeholder="Full Name" required /></td>
+            </tr>
+            <tr>
+              <td><label>Email:</label></td>
+              <td>
+                <input type="email" placeholder="email@id.com" required />
+              </td>
+            </tr>
+            <tr>
+              <td><label>User:</label></td>
+              <td><input type="Username" required /></td>
+            </tr>
+            <tr>
+              <td><label>Pass:</label></td>
+              <td><input type="password" minlength="8" required /></td>
+            </tr>
+          </table>
+          <div class="btn-row">
+            <input type="reset" value="Cancel" />
+            <input type="submit" value="Finish >>" />
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      document
+        .getElementById("studentForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          alert("Your Account Is Created Successfully");
+          this.reset();
+        });
+    </script>
+  </body>
+</html>

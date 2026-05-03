@@ -1,14 +1,104 @@
 # Experiment 1: Tomcat Server Installation & Configuration
-Objective: Install Tomcat Server and configure its environment variables.
 
-Steps to Run:
-1. Download and install Java 7 (or later) and Apache Tomcat Server.
-2. Find the start program in your system's Programs Menu.
-3. Look under "Apache Tomcat" and select "Start Tomcat" (or run `startup.bat` from the Tomcat `bin` directory via terminal).
-4. Open any web browser (Chrome, Firefox, etc.).
-5. Type the following URL into the address bar: http://localhost:8080/
-6. You should see the Tomcat home page, indicating the server is running successfully.
-7. To shut down the server, select "Stop Tomcat" (or run `shutdown.bat`).
+## Objective
+To install the Apache Tomcat server and configure environment variables for proper execution.
 
+## Requirements
+- **Java Development Kit (JDK)**: Version 7 or above
+- **Apache Tomcat**: Version 9.0 (Recommended)
+- **Web Browser**: Chrome / Firefox / Edge
 
+## Reference Links (For Detailed Setup)
+- **Official Tomcat Download**: [https://tomcat.apache.org/download-90.cgi](https://tomcat.apache.org/download-90.cgi)
+- **Java JDK Download**: [https://www.oracle.com/java/technologies/downloads/](https://www.oracle.com/java/technologies/downloads/)
+- **Tomcat Setup Guide**: [https://tomcat.apache.org/tomcat-9.0-doc/setup.html](https://tomcat.apache.org/tomcat-9.0-doc/setup.html)
 
+---
+
+## Steps to Run
+
+### Step 1: Install Java (JDK)
+1. Download and install JDK (version 7 or later).
+2. Set Environment Variables (Search for "Environment Variables" in the Windows Start Menu).
+   - Create a new system variable named `JAVA_HOME`.
+   - **JAVA_HOME** → Path where Java is installed
+   - *Example*: `C:\Program Files\Java\jdk1.8.0`
+3. Add to System PATH:
+   - Edit the `Path` variable and add: `%JAVA_HOME%\bin`
+4. Verify installation:
+   - Open a new Command Prompt and run:
+     ```cmd
+     java -version
+     ```
+
+### Step 2: Download and Extract Tomcat
+1. Download Apache Tomcat (zip version).
+2. Extract it to a folder, preferably near the root of your drive.
+   - *Example*: `C:\Tomcat`
+3. Main folders inside Tomcat:
+   - `bin` → Startup & shutdown files
+   - `conf` → Configuration files
+   - `webapps` → Deploy applications
+
+### Step 3: Start Tomcat Server
+1. Open the `bin` folder inside Tomcat.
+2. Run the startup script:
+   - Double-click `startup.bat`
+3. **OR** use Command Prompt:
+   ```cmd
+   cd C:\Tomcat\bin
+   startup.bat
+   ```
+   *Note: A command window will appear showing the server is starting.*
+
+### Step 4: Verify Server
+1. Open your web browser and enter:
+   - `http://localhost:8080/`
+   *If Tomcat is running correctly, the Tomcat homepage will appear.*
+
+### Step 5: Stop Tomcat Server
+1. Go to the `bin` folder and run the shutdown script:
+   - Double-click `shutdown.bat`
+2. **OR** use Command Prompt:
+   ```cmd
+   cd C:\Tomcat\bin
+   shutdown.bat
+   ```
+
+---
+
+## Common Errors and Fixes (Important for Viva ⚠️)
+
+### 1. Port 8080 Already in Use
+- **Error**: Port 8080 required by Tomcat is already in use (often by Oracle DB or another web server).
+- **Fix**: 
+  1. Open `conf/server.xml` in a text editor.
+  2. Find and change the port configuration line:
+     ```xml
+     <Connector port="8081" protocol="HTTP/1.1" ... />
+     ```
+  3. Restart Tomcat and access it using the new port: `http://localhost:8081/`
+  *Pro-Tip*: You can check what is using port 8080 by running `netstat -ano | findstr 8080` in Command Prompt.
+
+### 2. JAVA_HOME Not Set
+- **Error**: `JAVA_HOME environment variable is not defined correctly`
+- **Fix**: 
+  1. Set the `JAVA_HOME` environment variable properly to your JDK installation path.
+  2. **Important**: Restart your system or close and reopen the Command Prompt for changes to take effect.
+
+### 3. 'startup.bat' Not Working
+- **Error**: Command prompt window opens and closes immediately.
+- **Fix**: 
+  1. Run the script via Command Prompt instead of double-clicking it. This allows you to see the error message.
+  2. Check your Java installation by running: `java -version`. Ensure the `JAVA_HOME` path is correct and has no trailing semicolon.
+
+### 4. Access Denied / Permission Issue
+- **Fix**: 
+  1. Right-click the Command Prompt and select "Run as Administrator".
+  2. Ensure your user account has full read/write permissions for the `C:\Tomcat` folder. Avoid placing Tomcat in restricted directories like `C:\Program Files`.
+
+### 5. Tomcat Page Not Opening
+- **Fix**: 
+  1. Check the Tomcat console window to ensure the server started successfully without throwing severe exceptions.
+  2. Disable your Windows firewall temporarily or add an exception for port 8080.
+  3. Verify the URL is exactly: `http://localhost:8080/`
