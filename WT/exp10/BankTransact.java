@@ -1,30 +1,25 @@
-/* 
-* To change this license header, choose License Headers in Project Properties. 
-* To change this template file, choose Tools | Templates 
-* and open the template in the editor. 
-*/ 
-package bankexamp; 
- 
-import javax.ejb.Stateful; 
- 
-/** 
-*  
-* @author Admin 
-*/ @Stateful 
-public class BankTransact implements BankTransactLocal { 
- 
-// Lets consider default balance amount = 10000 int balance = 
-10000; 
-@Override 
-public void deposit(int amount) { balance = 
-balance + amount; 
-} 
- 
- 
-@Override 
-public int withdraw(int amount) { balance = 
-balance - amount ; return balance; 
-} 
- 
- 
-} 
+package bankexamp;
+
+import javax.ejb.Stateful;
+
+@Stateful
+public class BankTransact implements BankTransactLocal {
+
+    // Initializing the default account balance to 10,000
+    private int balance = 10000;
+
+    @Override
+    public int deposit(int amount) {
+        balance += amount;
+        return balance;
+    }
+
+    @Override
+    public int withdraw(int amount) {
+        // Prevent withdrawing more money than is available
+        if (amount <= balance) {
+            balance -= amount;
+        }
+        return balance;
+    }
+}

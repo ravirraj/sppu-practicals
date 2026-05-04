@@ -1,11 +1,59 @@
 # Experiment 10: Web Application using Enterprise Java Beans (EJB)
-Objective: Design and implement the web application logic for deposit and withdrawal transactions using EJB.
+**Objective**: Design and implement the web application logic for deposit and withdrawal transactions using EJB.
 
-Steps to Run:
-1. Open NetBeans IDE (or Eclipse with Java EE/Jakarta EE support).
-2. Create a new "Enterprise Application" project, which will automatically create an EJB module and a Web application module.
-3. In the EJB module, create your Session Beans (e.g., the `BankTransactLocal` interface and `BankTransact` implementation class).
-4. In the Web module, add your HTML form (`index.html`) and the Servlet (`transact.java`) that invokes the EJB.
-5. Configure an Application Server (like GlassFish, Payara, or WildFly/JBoss) in your IDE.
-6. Build and deploy the Enterprise Application to the configured Application Server.
-7. Once deployed, the IDE will usually open the application in your browser automatically, or you can navigate to `http://localhost:8080/YourProjectName/` to interact with the bank transaction interface.
+Here is the complete, step-by-step master guide to setting up, coding, and running your EJB Enterprise Application. Follow these steps exactly to have a perfectly working project!
+
+## Phase 1: Create the Enterprise Project
+Since EJB requires a strict folder structure, we are going to let NetBeans build the skeleton for you.
+1. Open **NetBeans IDE**.
+2. Go to **File > New Project**.
+3. Select **Java with Ant** in the left column, and choose **Enterprise Application** in the right column. Click **Next**.
+4. **Project Name**: `BankExperiment10`. Click **Next**.
+5. **Server**: Select your **GlassFish Server**.
+6. **Java EE Version**: Java EE 8 (or Java EE 7).
+7. Make sure **both** `Create EJB Module` and `Create Web Application Module` are checked.
+8. Click **Finish**.
+
+## Phase 2: Understand Your Directory Structure
+NetBeans just created three separate project folders in your left-hand menu. Here is exactly where your 4 files need to go:
+
+```text
+📁 BankExperiment10               <-- (The Master Project)
+│
+├── 📁 BankExperiment10-ejb       <-- (Backend Logic Module)
+│   └── 📁 Source Packages
+│       └── 📁 banklogic          <-- (Create this Java Package)
+│           ├── 📄 BankTransactLocal.java
+│           └── 📄 BankTransact.java
+│
+└── 📁 BankExperiment10-war       <-- (Frontend Web Module)
+    ├── 📁 Web Pages
+    │   └── 📄 index.html         
+    └── 📁 Source Packages
+        └── 📁 bankweb            <-- (Create this Java Package)
+            └── 📄 TransactServlet.java
+```
+
+## Phase 3: Create the EJB Module (Backend)
+This is where the actual math and banking rules live.
+
+1. Expand the **`BankExperiment10-ejb`** project.
+2. Right-click **Source Packages** > **New** > **Java Package**. Name it `banklogic`.
+3. Right-click the `banklogic` package > **New** > **Java Interface**. Name it `BankTransactLocal`. Paste your interface code into this file.
+4. Right-click the `banklogic` package > **New** > **Java Class**. Name it `BankTransact`. Paste your Stateful bean code into this file.
+
+## Phase 4: Create the Web Module (Frontend)
+This is where your HTML interface and Servlet controller live.
+
+1. Expand the **`BankExperiment10-war`** project.
+2. Open the **Web Pages** folder. Double-click `index.html` and completely replace its contents with your updated Tailwind CSS HTML interface.
+3. Right-click **Source Packages** (inside the `-war` project) > **New** > **Java Package**. Name it `bankweb`.
+4. Right-click the `bankweb` package > **New** > **Servlet** (or Java Class). Name it `TransactServlet`. Paste your Servlet logic into this file.
+
+## Phase 5: Build and Run
+Because this is an Enterprise app, the two modules need to be stitched together before running.
+
+1. Right-click the **Master Project** (`BankExperiment10` with the triangle icon).
+2. Click **Clean and Build**. Look at the "Output" window at the bottom of NetBeans to ensure it says `BUILD SUCCESSFUL`.
+3. Right-click the **Master Project** again and click **Run**.
+4. GlassFish will boot up, deploy both modules, and automatically open your browser to your beautiful new ATM interface!

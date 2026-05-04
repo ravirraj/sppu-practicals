@@ -1,12 +1,10 @@
-package bankexamp; import 
-javax.ejb.Local;
- 
-/** 
-* 
-* @author Admin 
-*/ @Local 
-public interface BankTransactLocal { void 
-deposit(int amount); 
-int withdraw(int amount); 
- 
-} 
+package bankexamp;
+
+import javax.ejb.Local;
+
+@Local
+public interface BankTransactLocal {
+    int deposit(int amount);
+
+    int withdraw(int amount);
+}
