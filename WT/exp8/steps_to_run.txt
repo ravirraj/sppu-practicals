@@ -1,12 +1,76 @@
 # Experiment 8: Web Application using Struts Framework
-Objective: Create a login module for a web application using the Struts MVC framework.
+**Objective**: Create a login module for a web application using the Struts MVC framework.
 
-Steps to Run:
-1. Open Eclipse IDE and create a new "Dynamic Web Project".
-2. Add the Struts 1.x API library JAR files to the `WEB-INF/lib` folder of your project.
-3. Copy the Java classes (`loginbean.java`, `loginform.java`) into your Java source packages (e.g., `com.myapp.struts`).
-4. Place the JSP pages (`login.jsp`, `success.jsp`, `failure.jsp`) into the Web Content directory.
-5. Configure the Struts mappings by placing `struts-config.xml` and `web.xml` in the `WEB-INF` directory.
-6. Configure Apache Tomcat Server (v7.0 or higher) within Eclipse.
-7. Deploy the project to the Tomcat server and start it.
-8. Open a browser and access the application (e.g., `http://localhost:8080/YourProjectName/login.jsp`).
+This is the ultimate, start-to-finish master guide for your Struts 1.x assignment. By combining the exact file directory with the setup steps, you will have a perfect blueprint to build this project without any 404 errors or server crashes.
+
+## The Master File Directory
+Keep this map handy. If a single file is in the wrong folder, the MVC architecture will break. This is exactly what your Eclipse Project Explorer should look like when you are finished:
+
+```text
+StrutsLoginApp/                   <-- 1. Your Main Project Folder
+│
+└── src/
+    └── main/
+        │
+        ├── java/                 <-- 2. Your Backend Folder
+        │   └── com/
+        │       └── myapp/
+        │           └── struts/   <-- 3. Your Java Package
+        │               ├── loginbean.java
+        │               └── loginform.java
+        │
+        └── webapp/               <-- 4. Your Frontend Folder (Public)
+            ├── login.jsp
+            ├── success.jsp
+            ├── failure.jsp
+            │
+            └── WEB-INF/          <-- 5. Your Configuration Folder (Hidden)
+                ├── struts-config.xml
+                ├── web.xml
+                │
+                └── lib/          <-- 6. Your Library Folder
+                    ├── struts-core-1.3.10.jar
+                    ├── struts-taglib-1.3.10.jar
+                    └── (Paste all other extracted Struts .jar files here)
+```
+
+## Step-by-Step Build Guide
+
+### Step 1: Initialize the Project
+1. Open Eclipse and go to **File > New > Dynamic Web Project**.
+2. **Project Name**: Type `StrutsLoginApp`.
+3. **Target Runtime**: Ensure your Apache Tomcat server (v7.0 or higher) is selected.
+4. Click **Next** twice to reach the "Web Module" page.
+5. **CRITICAL**: Check the box that says "Generate web.xml deployment descriptor", then click **Finish**.
+
+### Step 2: Inject the Struts Framework APIs
+1. Download the Struts 1.3 framework binaries (e.g., `struts-1.3.10-lib.zip`) from the official Apache archive and extract the `.jar` files.
+2. In Eclipse, navigate to `src > main > webapp > WEB-INF`.
+3. Right-click **WEB-INF**, select **New > Folder**, and name it `lib`.
+4. Copy all your extracted Struts `.jar` files and paste them directly into this `lib` folder.
+
+### Step 3: Build the Backend Logic (Java Classes)
+1. Navigate to `src > main > java`.
+2. Right-click the `java` folder, select **New > Package**, and name it exactly `com.myapp.struts`.
+3. Right-click your new package, select **New > Class**, and name it `loginbean`. Paste the corrected Java code provided previously.
+4. Repeat the process to create `loginform` and paste its corrected logic.
+
+### Step 4: Build the Frontend Views (JSP Pages)
+1. Right-click the `webapp` folder (do not put these inside `WEB-INF`).
+2. Select **New > JSP File**.
+3. Create `login.jsp` and paste the HTML form code.
+4. Repeat the process to create `success.jsp` and `failure.jsp`.
+
+### Step 5: Configure the Server Routing (XML Files)
+1. Navigate to `src > main > webapp > WEB-INF`.
+2. Open the `web.xml` file that Eclipse generated in Step 1. Replace all its text with the corrected `web.xml` routing code provided earlier (this tells Tomcat to send requests to Struts).
+3. Right-click the `WEB-INF` folder, select **New > XML File**, and name it `struts-config.xml`.
+4. Paste the corrected Struts configuration code (remembering to leave out the broken `<plug-in>` tags from the PDF).
+
+### Step 6: Deploy and Run
+1. Go to the **Servers** tab at the bottom of Eclipse.
+2. Right-click your Tomcat server and select **Clean...** (This removes any old, broken files from previous attempts).
+3. Right-click the server again and select **Publish** (This forces Eclipse to send your perfect file directory over to Tomcat).
+4. Right-click your project folder `StrutsLoginApp` in the Project Explorer.
+5. Select **Run As > Run on Server**.
+6. Tomcat will boot up, read your `web.xml`, and automatically open your browser to `http://localhost:8080/StrutsLoginApp/login.jsp`. Type "abc" and "123" into the boxes, and you will hit the success page!

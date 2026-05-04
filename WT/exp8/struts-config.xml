@@ -1,34 +1,24 @@
-<?xml version="1.0" encoding="UTF- 8" ?> 
-<!DOCTYPE struts-config PUBLIC 
-"-//Apache Software Foundation//DTD Struts Configuration 
-1.3//EN" "http://jakarta.apache.org/struts/dtds/struts-
-config_1_3.dtd"> 
-<struts-config> 
-<form-beans> 
-<form-bean name="loginbean" type="com.myapp.struts.loginbean"/> 
-</form-beans> 
-<global-exceptions> 
-</global-exceptions> 
-<global-forwards> 
-<forward name="failure" path="/failure.jsp"/> 
-<forward name="success" path="/success.jsp"/> 
-<forward name="welcome" path="/Welcome.do"/> 
-</global-forwards> 
-<action-mappings> 
-<action name="loginbean" path="/loginform" scope="request" type="com.myapp .struts.loginform" 
-validate="false"/> 
-<action path="/Welcome" forward="/welcomeStruts.jsp"/></action-mappings> 
-<controllerprocessorClass="org.apache.struts.tiles.TilesRequestProcessor"/> 
-<message-resources parameter="com/myapp/struts/ApplicationResource"/> 
-<plug-in className="org.apache.struts.tiles.TilesPlugin" > 
-<set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml"  
-/><set-property property="moduleAware" value="true" /> 
-</plug-in> 
- 
-<!-- ========================= Validator plugin =============================== == -- 
-> 
-<plug-in className="org.apache.struts.validator.ValidatorPlugIn"> 
-<set-property property="pathnames" 
-value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml"/> 
-</plug-in> 
-</struts-config> 
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts-config PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" 
+"http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+    <form-beans>
+        <form-bean name="loginbean" type="com.myapp.struts.loginbean"/>
+    </form-beans>
+    
+    <global-exceptions>
+    </global-exceptions>
+    
+    <global-forwards>
+        <forward name="failure" path="/failure.jsp"/>
+        <forward name="success" path="/success.jsp"/>
+        <forward name="welcome" path="/Welcome.do"/>
+    </global-forwards>
+    
+    <action-mappings>
+        <action name="loginbean" path="/loginform" scope="request" type="com.myapp.struts.loginform" validate="false"/>
+        <action path="/Welcome" forward="/welcomeStruts.jsp"/>
+    </action-mappings>
+</struts-config>
