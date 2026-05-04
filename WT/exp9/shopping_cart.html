@@ -1,87 +1,165 @@
-<!DOCTYPE html> 
-<html> 
-<head> 
-<style> table { 
-width: 80%; 
-border: 2px solid black; 
-border-collapse: collapse; 
-margin: 20px auto;
- 
-} 
-th, td { 
-border: 1px solid black; 
-padding: 8px;
- 
-text-align: center; 
-} 
-th { 
-background-color: #f2f2f2; 
-} 
-</style> 
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script 
-> 
-</head> 
-<body> 
-<hr><br> 
-<center><h2>Shopping Cart Record</h2></center> 
-<div data- ng-app="myapp" data- ng-controller="CartForm"> 
-<center><br> 
-<hr><br><br> 
-<table class="table"> 
-<thead> 
-<tr> 
-<th>Description</th> 
-<th>Qty</th> 
-<th>Cost</th> 
-<th>Total</th> 
-<th>Remove</th> 
-</tr> 
-</thead> 
-<tbody> 
-<tr ng-repeat="item in cart.items track by $index"> 
-<td><input type="text" ng-model="item.description"></td> 
-<td><input type="number" ng-model="item.qty" ng-required></td> 
-<td><input type="number" ng-model="item.cost" ng-required></td> 
-<td>{{item.qty * item.cost | currency:'Rs '}}</td> 
+<!doctype html>
+<html ng-app="myapp">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Shopping Cart System</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <style>
+      body {
+        background-color: #008080; /* Win95 Teal */
+        font-family: "MS Sans Serif", Arial, sans-serif;
+        font-size: 11px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+      }
+      .window {
+        background-color: #c0c0c0;
+        border: 2px solid;
+        border-color: #fff #808080 #808080 #fff;
+        padding: 2px;
+        width: 600px;
+      }
+      .title-bar {
+        background: linear-gradient(90deg, #000080, #1084d0);
+        color: white;
+        padding: 3px 5px;
+        font-weight: bold;
+        display: flex;
+        justify-content: space-between;
+      }
+      .content {
+        padding: 10px;
+        border: 1px solid #808080;
+        margin: 2px;
+        background: #fff;
+      }
 
-<td>[<a href ng-click="removeItem($index)">X</a>]</td> 
-</tr> 
-<tr> 
-<td><a href ng-click="addItem()">Add Item</a></td> 
-<td></td> 
- <td>Total:</td>
- 
-<td>{{total() | currency:'Rs '}}</td> 
-<td></td> 
-</tr> 
-</tbody> 
-</table> 
-</center> 
-</div> 
-<script> 
-var app = angular.module('myapp', []); app.controller('CartForm', 
-function($scope) {
- 
-$scope.cart = { 
-items: [{ qty: '', description: '', cost: '' }] 
-}; 
- 
-$scope.addItem = function() { 
-$scope.cart.items.push({ qty: '', description: '', cost: '' }); 
-}; 
- 
-$scope.removeItem = function(index) { 
-$scope.cart.items.splice(index, 1); 
-}; 
- 
-$scope.total = function() { var total 
-= 0; 
-angular.forEach($scope.cart.items, function(item) { total += 
-item.qty * item.cost; 
-}); 
-return total; 
-}; 
-}); 
-</script> 
-</body> 
-</html> 
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+      }
+      th {
+        background: #d3d3d3;
+        border: 1px solid #808080;
+        padding: 5px;
+        text-align: left;
+      }
+      td {
+        border: 1px solid #d3d3d3;
+        padding: 5px;
+      }
+
+      input {
+        border: 2px solid;
+        border-color: #808080 #fff #fff #808080;
+        padding: 2px;
+        width: 90%;
+        font-size: 11px;
+      }
+
+      .btn {
+        background: #c0c0c0;
+        border: 2px solid;
+        border-color: #fff #808080 #808080 #fff;
+        padding: 2px 10px;
+        cursor: pointer;
+        font-size: 11px;
+        text-decoration: none;
+        color: black;
+        display: inline-block;
+      }
+      .btn:active {
+        border-color: #808080 #fff #fff #808080;
+      }
+      .remove-btn {
+        color: red;
+        font-weight: bold;
+        text-decoration: none;
+      }
+      .total-row {
+        font-weight: bold;
+        background: #f2f2f2;
+      }
+    </style>
+  </head>
+  <body ng-controller="CartForm">
+    <div class="window">
+      <div class="title-bar">
+        <span>Cart_Manager.exe</span>
+        <span>[?] [X]</span>
+      </div>
+      <div class="content">
+        <div style="font-weight: bold; font-size: 14px; margin-bottom: 10px">
+          Shopping Cart Record
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Description</th>
+              <th width="60">Qty</th>
+              <th width="80">Cost</th>
+              <th width="100">Total</th>
+              <th width="40">Del</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="item in cart.items">
+              <td>
+                <input
+                  type="text"
+                  ng-model="item.description"
+                  placeholder="Item name..."
+                />
+              </td>
+              <td><input type="number" ng-model="item.qty" /></td>
+              <td><input type="number" ng-model="item.cost" /></td>
+              <td>{{item.qty * item.cost | currency:'Rs '}}</td>
+              <td align="center">
+                <a href class="remove-btn" ng-click="removeItem($index)">[X]</a>
+              </td>
+            </tr>
+            <tr class="total-row">
+              <td colspan="2">
+                <a href class="btn" ng-click="addItem()">+ Add Item</a>
+              </td>
+              <td align="right">Grand Total:</td>
+              <td>{{total() | currency:'Rs '}}</td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <script>
+      var app = angular.module("myapp", []);
+      app.controller("CartForm", function ($scope) {
+        $scope.cart = {
+          items: [{ qty: 1, description: "Software License", cost: 500 }],
+        };
+
+        $scope.addItem = function () {
+          $scope.cart.items.push({ qty: 0, description: "", cost: 0 });
+        };
+
+        $scope.removeItem = function (index) {
+          if ($scope.cart.items.length > 1) {
+            $scope.cart.items.splice(index, 1);
+          }
+        };
+
+        $scope.total = function () {
+          var total = 0;
+          angular.forEach($scope.cart.items, function (item) {
+            total += item.qty * item.cost;
+          });
+          return total;
+        };
+      });
+    </script>
+  </body>
+</html>

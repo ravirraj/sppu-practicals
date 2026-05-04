@@ -4,13 +4,16 @@ $servername = "localhost";
 
 $username = "root";
 
-$password = "";
+$password = "yourpassword";
 
 $dbname = "assignment6";
 
+$port = 3307;
+
 // Create connection 
 
-$conn = new mysqli("localhost", "root", "", "assignment6");
+$conn = new mysqli($servername, $username, $password, $dbname, $port);
+
 
 
 
