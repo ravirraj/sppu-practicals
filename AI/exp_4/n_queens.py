@@ -6,10 +6,20 @@ def solve_n_queens(n):
             if board[i] == col or abs(board[i] - col) == row - i:
                 return False
         return True
+    
+    def print_board():
+        for row in range (n):
+            for col in range(n):
+                if board[row] == col:
+                    print("Q", end=" ")
+                else:
+                    print(".", end=" ")
+            print()
+        print()
 
     def solve(row):
         if row == n:
-            print(board)
+            print_board()
             return
         for col in range(n):
             if is_safe(row, col):
